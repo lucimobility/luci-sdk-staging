@@ -63,12 +63,3 @@ then
     make install
     popd
 fi
-
-# SDK Install
-cd
-# if [ ! -d "$HOME/ros-2-sdk/" ] 
-# then
-    # git clone git@bitbucket.org:Christian-Prather/ros-2-sdk.git
-    cd ros-2-sdk/binaries
-    sudo apt install ./*.deb 
-# fi
