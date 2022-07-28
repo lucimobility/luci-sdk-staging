@@ -1,5 +1,35 @@
+- [Getting Started](#getting-started)
+    - [Document status](#document-status)
+  - [Overview:](#overview)
+  - [Versioning:](#versioning)
+  - [Manual dependencies:](#manual-dependencies)
+  - [General items:](#general-items)
+    - [Install the basic libraries below](#install-the-basic-libraries-below)
+    - [Install ROS2 Galactic:](#install-ros2-galactic)
+    - [Set the local:](#set-the-local)
+    - [Add the ROS2 apt repository:](#add-the-ros2-apt-repository)
+    - [Add the repo to sources:](#add-the-repo-to-sources)
+    - [Install ROS2:](#install-ros2)
+    - [Install Protobuf:](#install-protobuf)
+    - [Install gRPC:](#install-grpc)
+    - [Clone and Install:](#clone-and-install)
+    - [ROS2 SDK Install:](#ros2-sdk-install)
+  - [Troubleshooting:](#troubleshooting)
+  - [VM:](#vm)
+- [Using the SDK](#using-the-sdk)
+  - [Overview:](#overview-1)
+  - [General Diagram:](#general-diagram)
+  - [Package Descriptions:](#package-descriptions)
+    - [luci\_ros\_grpc:](#luci_ros_grpc)
+    - [luci\_ros\_msgs:](#luci_ros_msgs)
+    - [luci\_ros\_transforms:](#luci_ros_transforms)
+    - [luci\_ros\_joystick\_pid:](#luci_ros_joystick_pid)
+    - [luci\_ros\_models:](#luci_ros_models)
+  - [Brief Example flow:](#brief-example-flow)
+  - [Troubleshooting:](#troubleshooting-1)
 
-# Getting Started 
+# Getting Started
+
 ### Document status
 
 IN DEVELOPMENT
