@@ -63,3 +63,13 @@ then
     make install
     popd
 fi
+
+# Install the SDK packages
+cd ..
+cd $HOME/luci_ros2_sdk/binaries
+sudo apt install ./*.deb
+
+cd
+
+
+
