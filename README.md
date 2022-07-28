@@ -25,6 +25,7 @@ The current features of the ROS2 SDK are as follows:
 
 <b> Note: There are many other data streams being added soon </b>
 
+
 ## Versioning:
 The SDK is a combination of multiple individual packages. Each package is a separate repo and as such has its own versioning number. The publicly provided SDK repo however is a holding place for examples and package binaries. As a developer using the SDK you will only need to concern yourself with that single repo and version. All binaries in a specific version will be tested against each other before any public release tag is generated. 
 
