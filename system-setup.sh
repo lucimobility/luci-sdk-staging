@@ -72,6 +72,7 @@ then
         -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \
         -DgRPC_PROTOBUF_PROVIDER=package \
         -DBUILD_SHARED_LIBS=ON \
+        -DABSL_ENABLE_INSTALL=ON \
         ../..
     make -j$(nproc)
     make install
