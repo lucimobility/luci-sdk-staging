@@ -1,7 +1,33 @@
+<img src="docs/images/sandbox-logo.png" alt="LUCI Sandbox" />
+
+# Overview
+LUCI provides an SDK for use of LUCI within the ROS2 ecosystem. LUCI provides multiple deb packages containing message types, executable nodes, and URDF who’s entire purpose is to get LUCI data into ROS2 compatible formats.
+
+As LUCI uses a different internal messaging system than ROS, the bulk of the SDK is translating between message types. 
+
+The current features of the ROS2 SDK are as follows:
+
+- Reading of sensor point cloud data
+
+- Reading of linear speed (chair speed from RNet)
+
+- Reading of Joystick position
+
+- Reading of scaling values
+
+- Writing of Joystick values for remote operation
+
+<b> Note: There are many other data streams being added soon </b>
+
+## Versioning:
+The SDK is a combination of multiple individual packages. Each package is a separate repo and as such has its own versioning number. The publicly provided SDK repo however is a holding place for examples and package binaries. As a developer using the SDK you will only need to concern yourself with that single repo and version. All binaries in a specific version will be tested against each other before any public release tag is generated. 
+
+New tags will be released based on aggressiveness of the changes which may include new support for an upgraded ROS version or the inclusion of new features in the form of additional package binaries. 
+
+Versioning is handled on a major.minor.patch method, until the official SDK is released all developers will be using a version < 1.0.0.
+
+## Table of Contents:
 - [Getting Started](#getting-started)
-    - [Document status](#document-status)
-  - [Overview:](#overview)
-  - [Versioning:](#versioning)
   - [Manual dependencies:](#manual-dependencies)
   - [General items:](#general-items)
     - [Install the basic libraries below](#install-the-basic-libraries-below)
@@ -30,39 +56,6 @@
 
 # Getting Started
 
-### Document status
-
-IN DEVELOPMENT
-PLEASE NOTE THIS IS A CHANGING DOCUMENT DURING DEVELOPMENT AND AS SUCH IS SUBJECT TO CHANGE AS MUCH AS SEVERAL TIMES A DAY UNTIL FURTHER INDICATED
-
-
-## Overview: 
-LUCI provides an SDK for use of LUCI within the ROS2 ecosystem. LUCI provides multiple deb packages containing message types, executable nodes, and URDF who’s entire purpose is to get LUCI data into ROS2 compatible formats.
-
-As LUCI uses a different internal messaging system than ROS, the bulk of the SDK is translating between message types. 
-
-The current features of the ROS2 SDK are as follows:
-
-- Reading of sensor point cloud data
-
-- Reading of linear speed (chair speed from RNet)
-
-- Reading of Joystick position
-
-- Reading of scaling values
-
-- Writing of Joystick values for remote operation
-
-<b> Note: There are many other data streams being added soon </b>
-
-
-## Versioning:
-The SDK is a combination of multiple individual packages. Each package is a separate repo and as such has its own versioning number. The publicly provided SDK repo however is a holding place for examples and package binaries. As a developer using the SDK you will only need to concern yourself with that single repo and version. All binaries in a specific version will be tested against each other before any public release tag is generated. 
-
-New tags will be released based on aggressiveness of the changes which may include new support for an upgraded ROS version or the inclusion of new features in the form of additional package binaries. 
-
-Versioning is handled on a major.minor.patch method, until the official SDK is released all developers will be using a version < 1.0.0.
-
 Setting up your development machine:
 Due to the nature of the current packages, some require dependencies before they can be installed or run. These packages are built and tested to support ROS2 Galactic with Ubuntu 20.04. New packages can be developed to fit other ROS2 version and OS needs in the future.
 
@@ -71,8 +64,6 @@ Currently there are two recommended approaches to getting setup to use the LUCI 
 - Install dependencies manually 
 
 - Use the provided VM template 
-
- 
 
 ## Manual dependencies:
 To manually set up an existing system to use the LUCI ROS2 SDK follow the below instructions. Please note that some of these are system wide installs and could have conflicts with other libraries already installed on your system. If you are concerned about that please either plan on running the SDK packages on a separate clean system or use the VM provided in the instructions below. 
