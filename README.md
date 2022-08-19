@@ -162,6 +162,8 @@ If it does not then check that you do not have a different version installed som
 
 
 ### Install gRPC:
+`cd ~`
+
 https://github.com/grpc/grpc/blob/master/BUILDING.md#build-from-source  
 
 gRPC relies on prootbuf as such defaults to installing a version with it. We can tell the installer that we already have protobuf installed however and avoid this. (Note: If you do not tell gRPC to use the 3.17.1 version of protobuf later steps will say that the generated .proto files were generated with the wrong version of protobuf) 
@@ -215,7 +217,9 @@ That should be good to go to clone and install the ROS2 SDK repo
 
 ### ROS2 SDK Install:
 
-`cd binaries`
+clone the repository and `cd` in to it
+
+`cd ~/binaries`
 
 `sudo apt install ./*.deb` 
 
@@ -318,7 +322,7 @@ This package handles the transformation of raw sensor points that are all refere
 
 _**Note: All the sensors from LUCI streams are already set relative to the chair center so the transforms below are an identity matrix that is only here to provide other tools such as nav\_2 and rviz2 with knowledge of the frames used**_
 
-<table data-layout="default" data-local-id="faf35abf-0c15-436b-bdf8-be771ce21165" class="confluenceTable"><colgroup><col style="width: 256.0px;"><col style="width: 504.0px;"></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Package</strong></p></th><th class="confluenceTh"><p><strong>Node</strong></p></th></tr><tr><td class="confluenceTd"><p>luci_sensors_tf</p></td><td class="confluenceTd"><p>luci_permobil_m3_transforms_node</p></td></tr><tr><td class="confluenceTd"><p>luci_sensors_tf</p></td><td class="confluenceTd"><p>luci_quantum_500m_transforms_node</p></td></tr></tbody></table>
+<table data-layout="default" data-local-id="faf35abf-0c15-436b-bdf8-be771ce21165" class="confluenceTable"><colgroup><col style="width: 256.0px;"><col style="width: 504.0px;"></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Package</strong></p></th><th class="confluenceTh"><p><strong>Node</strong></p></th></tr><tr><td class="confluenceTd"><p>luci_sensors_tf</p></td><td class="confluenceTd"><p>luci_permobil_m3_transforms_node</p></td></tr><tr><td class="confluenceTd"><p>luci_sensors_tf</p></td><td class="confluenceTd"><p>luci_quickie_500m_transforms_node</p></td></tr></tbody></table>
 
 <table data-layout="wide" data-local-id="2bce17af-642c-4417-8749-0ad1006a166e" class="confluenceTable"><colgroup><col style="width: 229.0px;"><col style="width: 155.0px;"><col style="width: 315.0px;"><col style="width: 261.0px;"></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Topics</strong></p></th><th class="confluenceTh"><p><strong>Subscription / Publish</strong></p></th><th class="confluenceTh"><p><strong>Message Type</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>luci/camera_transform</p></td><td class="confluenceTd"><p>publish</p></td><td class="confluenceTd"><p>geometry_msgs::msg::TransformStamped</p></td><td class="confluenceTd"><p>Transformation from front camera pointcloud to chair center</p><p>(base_link = chair center, base_camera = camera stream)</p></td></tr><tr><td class="confluenceTd"><p>luci/ultrasonic_transform</p></td><td class="confluenceTd"><p>publish</p></td><td class="confluenceTd"><p>geometry_msgs::msg::TransformStamped</p></td><td class="confluenceTd"><p>Transformation from ultransonic pointcloud to chair center</p><p>(base_link = chair center, <span class="inline-comment-marker" data-ref="d48cb478-70de-40d9-9e1e-f16dd9f75500">base</span>_ultrasonic = ultrasonic stream)</p></td></tr><tr><td class="confluenceTd"><p>luci/radar_transform</p></td><td class="confluenceTd"><p>publish</p></td><td class="confluenceTd"><p>geometry_msgs::msg::TransformStamped</p></td><td class="confluenceTd"><p>Transformation from radar pointcloud to chair center</p><p>(base_link = chair center, <span class="inline-comment-marker" data-ref="5a7e5dee-840c-4c81-85bd-eb723e9c388f">base_</span>radar = radar stream)</p></td></tr></tbody></table>
 
@@ -341,21 +345,45 @@ _**Note: This is not ideal and a new approach is being looked into**_
 **summary:**
 
 This package holds all URDF models created for LUCI, wheelchairs, and any other LUCI compatible devices that may be useful for simulation and modeling
-
-Brief Example flow:
+Example 1 Receive Data from LUCI:
 -------------------
 
-Lets look at a general example of how you might use the LUCI ROS2 SDK to send and receive data to LUCI from a ROS node.
+Lets look at a general example of how you might use the LUCI ROS2 SDK to receive data from LUCI from a ROS node. This example spins up the connection to the chair and allows its sensors to be visualized in rviz2.
 
-First thing you need to do is spin up the luci\_grpc\_interface\_node. See the readme in the connecting to chair examples folder of the SDK repo for how to point at a specific chair IP address and port. This spins up the connection to the chair and allows its sensors to be visualized in rviz2.
+Step 1: Open a fresh terminal and source ros2 </br>
+`source /opt/ros/galactic/setup.sh`</br></br>
+Step 2: Spin up the luci\_grpc\_interface\_node. </br>
+`ros2 run luci_grpc_interface luci_grpc_interface_node -a <chair-ip-address>`</br></br>
+Step 3: Open a NEW terminal and source ros2 </br>
+`source /opt/ros/galactic/setup.sh`</br></br>
+Step 4: Run the sensor transform topic. This tells ROS the location of each sensor in the stream.</br>
+`ros2 run luci_sensors_tf luci_quickie_500m_transforms_node` </br></br>
+Step 5: Run rviz2 </br>
+`rviz2`</br></br>
+Step 6: Configure rviz to display the pointcloud.</br>
+- Change *Fixed Frame* to use *base_link*</br>
+- Press the *Add* button and select *PointCloud2*</br>
+- Click the dropdown on *PointClould2* </br>
+- Change the *Topic* to use */cloud_in* </br></br>
 
 _**(Note the interface node is going to use a lot of threads)**_
 
-To give ROS an understanding of our frames we need to run the transformation node provided for your specific model of chair.
+At this point you should have the ability to read any number of data streams from LUCI. 
 
-Open a new terminal and run the luci\_sensors\_tf for your specific chair. Once this is running you should be able to select base\_link as the global reference in any visualizer and see a 3D point cloud that represents what the sensors see relative to chair center.
+Example 2 Send Data to LUCI:
+Step 1: Open a fresh terminal and source ros2 </br>
+`source /opt/ros/galactic/setup.sh`</br></br>
+Step 2: Spin up the luci\_grpc\_interface\_node. </br>
+`ros2 run luci_grpc_interface luci_grpc_interface_node -a <chair-ip-address>`</br></br>
+Step 3: Open a NEW terminal and source ros2 </br>
+`source /opt/ros/galactic/setup.sh`</br></br>
+Step 4: Run the joystick node </br>
+`ros2 run luci_joystick_converter luci_joystick_pid_node` </br></br>
+more too come</br>
 
-At this point you should have the ability to read any number of data streams from LUCI and send in a remote joystick commands to drive the chair.
+
+and send in a remote joystick commands to drive the chair.
+
 
 Troubleshooting:
 ----------------
