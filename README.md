@@ -27,6 +27,9 @@ New tags will be released based on aggressiveness of the changes which may inclu
 Versioning is handled on a major.minor.patch method, until the official SDK is released all developers will be using a version < 1.0.0.
 
 ## Table of Contents:
+- [Overview](#overview)
+  - [Versioning:](#versioning)
+  - [Table of Contents:](#table-of-contents)
 - [Getting Started](#getting-started)
   - [Manual dependencies:](#manual-dependencies)
   - [General items:](#general-items)
@@ -51,7 +54,7 @@ Versioning is handled on a major.minor.patch method, until the official SDK is r
     - [luci\_ros\_transforms:](#luci_ros_transforms)
     - [luci\_ros\_joystick\_pid:](#luci_ros_joystick_pid)
     - [luci\_ros\_models:](#luci_ros_models)
-  - [Brief Example flow:](#brief-example-flow)
+  - [Example 1 Receive Data from LUCI:](#example-1-receive-data-from-luci)
   - [Troubleshooting:](#troubleshooting-1)
 
 # Getting Started
@@ -61,7 +64,7 @@ Due to the nature of the current packages, some require dependencies before they
 
 Currently there are two recommended approaches to getting setup to use the LUCI ROS2 SDK 
 
-- Install dependencies manually 
+- Install dependencies manually or with `system-setub.sh` script
 
 - Use the provided VM template 
 
