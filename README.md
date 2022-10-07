@@ -288,7 +288,91 @@ You are likely to always use this node if using the LUCI SDK.
 
 <table data-layout="default" data-local-id="78cec69e-9f2c-4efa-b15b-2304ac23f099" class="confluenceTable"><colgroup><col style="width: 256.0px;"><col style="width: 504.0px;"></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Package</strong></p></th><th class="confluenceTh"><p><strong>Node</strong></p></th></tr><tr><td class="confluenceTd"><p>luci_grpc_interface</p></td><td class="confluenceTd"><p>luci_grpc_interface_node</p></td></tr></tbody></table>
 
-<table data-layout="wide" data-local-id="a9b39c85-d3d6-40fe-936c-5ba4d321b6e2" class="confluenceTable"><colgroup><col style="width: 197.0px;"><col style="width: 187.0px;"><col style="width: 315.0px;"><col style="width: 261.0px;"></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Topics</strong></p></th><th class="confluenceTh"><p><strong>Subscription / Publish</strong></p></th><th class="confluenceTh"><p><strong>Message Type</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr><td class="confluenceTd"><p>luci/joystick_topic</p></td><td class="confluenceTd"><p>subscription</p></td><td class="confluenceTd"><p>luci_messages::msg::LuciJoystick</p></td><td class="confluenceTd"><p>Joystick values used to drive the chair (FB: xxx, LR:<span class="inline-comment-marker" data-ref="bc1395ec-0b92-44e3-bb4a-6be4f4336f44"> xxx</span>)</p></td></tr><tr><td class="confluenceTd"><p>luci/drive_mode</p></td><td class="confluenceTd"><p>subscription</p></td><td class="confluenceTd"><p>luci_messages::msg::LuciDriveMode</p></td><td class="confluenceTd"><p>Mode of chair for drive controls (Normal = user drives with joystick, Engaged = remote command drive the chair if user is holding joystick forward, Auto = remote commands drive chair no matter what user is doing)</p></td></tr><tr><td class="confluenceTd"><p>luci/joystick_position</p></td><td class="confluenceTd"><p>publisher</p></td><td class="confluenceTd"><p>luci_messages::msg::LuciJoystick</p></td><td class="confluenceTd"><p>Joystick values of the chair (FB: xx, LR: xx)</p></td></tr><tr><td class="confluenceTd"><p>luci/scaled_joystick_position</p></td><td class="confluenceTd"><p>publisher</p></td><td class="confluenceTd"><p>luci_messages::msg::LuciJoystick</p></td><td class="confluenceTd"><p>Scaled joystick values of the chair (FB: xx, LR: xx)</p></td></tr><tr><td class="confluenceTd"><p>luci/chair_velocity</p></td><td class="confluenceTd"><p>publisher</p></td><td class="confluenceTd"><p>geometry_msgs::msg::Twist</p></td><td class="confluenceTd"><p>Linear and angular velocity of the chair according to onboard AHRS</p><p><em><strong>Note: “linear velocity” will be speed not velocity</strong></em></p></td></tr><tr><td class="confluenceTd"><p>luci/all_sensor_points</p></td><td class="confluenceTd"><p>publisher</p></td><td class="confluenceTd"><p>sensor_msgs::msg::PointCloud2</p></td><td class="confluenceTd"><p>Full pointcloud (All LUCI sensors)</p></td></tr><tr><td class="confluenceTd"><p>luci/odom</p></td><td class="confluenceTd"><p>publisher</p></td><td class="confluenceTd"><p>nav_msgs::msg::Odometry</p></td><td class="confluenceTd"><p>IMU odom reading</p></td></tr><tr><td class="confluenceTd"><p>luci/ultrasonic_points</p></td><td class="confluenceTd"><p>publisher</p></td><td class="confluenceTd"><p>sensor_msgs::msg::PointCloud2</p></td><td class="confluenceTd"><p>Ultrasonic pointcloud</p></td></tr><tr><td class="confluenceTd"><p>luci/radar_points</p></td><td class="confluenceTd"><p>publisher</p></td><td class="confluenceTd"><p>sensor_msgs::msg::PointCloud2</p></td><td class="confluenceTd"><p>Radar pointcloud</p></td></tr><tr><td class="confluenceTd"><p>luci/camera_points</p></td><td class="confluenceTd"><p>publisher</p></td><td class="confluenceTd"><p>sensor_msgs::msg::PointCloud2</p></td><td class="confluenceTd"><p>Camera poincloud</p></td></tr><tr><td class="confluenceTd"><p>luci/scaling</p></td><td class="confluenceTd"><p>publisher</p></td><td class="confluenceTd"><p>luci_messages::msg::LuciScaling</p></td><td class="confluenceTd"><p>Scaling percentage of each zone LUCI sees (100% =&gt; full ability to drive)</p></td></tr><tr><td class="confluenceTd"><p>luci/ir_left_camera</p></td><td class="confluenceTd"><p>publisher</p></td><td class="confluenceTd"><p>sensor_msgs::msg::Image</p></td><td class="confluenceTd"><p>Left camera’s IR frame</p></td></tr><tr><td class="confluenceTd"><p>luci/ir_right_camera</p></td><td class="confluenceTd"><p>publisher</p></td><td class="confluenceTd"><p>sensor_msgs::msg::Image</p></td><td class="confluenceTd"><p>Right camera’s IR frame</p></td></tr><tr><td class="confluenceTd"><p>luci/ir_back_camera</p></td><td class="confluenceTd"><p>publisher</p></td><td class="confluenceTd"><p>sensor_msgs::msg::Image</p></td><td class="confluenceTd"><p>Back camera’s IR frame</p></td></tr></tbody></table>
+<table data-layout="wide" data-local-id="a9b39c85-d3d6-40fe-936c-5ba4d321b6e2" class="confluenceTable"><colgroup><col style="width: 197.0px;"><col style="width: 187.0px;"><col style="width: 315.0px;"><col style="width: 261.0px;"></colgroup><tbody><tr><th class="confluenceTh"><p><strong>Currently Implemented</strong></p></th><th class="confluenceTh"><p><strong>Topics</strong></p></th><th class="confluenceTh"><p><strong>Subscription / Publish</strong></p></th><th class="confluenceTh"><p><strong>Message Type</strong></p></th><th class="confluenceTh"><p><strong>Description</strong></p></th></tr><tr>
+
+<td class="confluenceTd"><p>YES</p></td>
+<td class="confluenceTd"><p>luci/joystick_topic</p></td>
+<td class="confluenceTd"><p>subscription</p></td>
+<td class="confluenceTd"><p>luci_messages::msg::LuciJoystick</p></td>
+<td class="confluenceTd"><p>Joystick values used to drive the chair (FB: xxx, LR:<span class="inline-comment-marker" data-ref="bc1395ec-0b92-44e3-bb4a-6be4f4336f44"> xxx</span>)</p></td></tr><tr>
+
+<td class="confluenceTd"><p>YES</p></td>
+<td class="confluenceTd"><p>luci/drive_mode</p></td>
+<td class="confluenceTd"><p>subscription</p></td>
+<td class="confluenceTd"><p>luci_messages::msg::LuciDriveMode</p></td>
+<td class="confluenceTd"><p>Mode of chair for drive controls (Normal = user drives with joystick, Engaged = remote command drive the chair if user is holding joystick forward, Auto = remote commands drive chair no matter what user is doing)</p></td></tr><tr>
+
+<td class="confluenceTd"><p>no</p></td>
+<td class="confluenceTd"><p>luci/joystick_position</p></td>
+<td class="confluenceTd"><p>publisher</p></td>
+<td class="confluenceTd"><p>luci_messages::msg::LuciJoystick</p></td>
+<td class="confluenceTd"><p>Joystick values of the chair (FB: xx, LR: xx)</p></td></tr><tr>
+
+<td class="confluenceTd"><p>no</p></td>
+<td class="confluenceTd"><p>luci/scaled_joystick_position</p></td>
+<td class="confluenceTd"><p>publisher</p></td>
+<td class="confluenceTd"><p>luci_messages::msg::LuciJoystick</p></td>
+<td class="confluenceTd"><p>Scaled joystick values of the chair (FB: xx, LR: xx)</p></td></tr><tr>
+
+<td class="confluenceTd"><p>no</p></td>
+<td class="confluenceTd"><p>luci/chair_velocity</p></td>
+<td class="confluenceTd"><p>publisher</p></td>
+<td class="confluenceTd"><p>geometry_msgs::msg::Twist</p></td>
+<td class="confluenceTd"><p>Linear and angular velocity of the chair according to onboard AHRS</p><p><em><strong>Note: “linear velocity” will be speed not velocity</strong></em></p></td></tr><tr>
+
+<td class="confluenceTd"><p>coming soon</p></td>
+<td class="confluenceTd"><p>luci/all_sensor_points</p></td>
+<td class="confluenceTd"><p>publisher</p></td>
+<td class="confluenceTd"><p>sensor_msgs::msg::PointCloud2</p></td>
+<td class="confluenceTd"><p>Full pointcloud (All LUCI sensors)</p></td></tr><tr>
+
+<td class="confluenceTd"><p>no</p></td>
+<td class="confluenceTd"><p>luci/odom</p></td>
+<td class="confluenceTd"><p>publisher</p></td>
+<td class="confluenceTd"><p>nav_msgs::msg::Odometry</p></td>
+<td class="confluenceTd"><p>IMU odom reading</p></td></tr><tr>
+
+<td class="confluenceTd"><p>coming soon</p></td>
+<td class="confluenceTd"><p>luci/ultrasonic_points</p></td>
+<td class="confluenceTd"><p>publisher</p></td>
+<td class="confluenceTd"><p>sensor_msgs::msg::PointCloud2</p></td>
+<td class="confluenceTd"><p>Ultrasonic pointcloud</p></td></tr><tr>
+
+<td class="confluenceTd"><p>coming soon</p></td>
+<td class="confluenceTd"><p>luci/radar_points</p></td>
+<td class="confluenceTd"><p>publisher</p></td>
+<td class="confluenceTd"><p>sensor_msgs::msg::PointCloud2</p></td>
+<td class="confluenceTd"><p>Radar pointcloud</p></td></tr><tr>
+
+<td class="confluenceTd"><p>YES</p></td>
+<td class="confluenceTd"><p>luci/camera_points</p></td>
+<td class="confluenceTd"><p>publisher</p></td>
+<td class="confluenceTd"><p>sensor_msgs::msg::PointCloud2</p></td>
+<td class="confluenceTd"><p>Camera poincloud</p></td></tr><tr>
+
+<td class="confluenceTd"><p>coming soon</p></td>
+<td class="confluenceTd"><p>luci/scaling</p></td>
+<td class="confluenceTd"><p>publisher</p></td>
+<td class="confluenceTd"><p>luci_messages::msg::LuciScaling</p></td>
+<td class="confluenceTd"><p>Scaling percentage of each zone LUCI sees (100% =&gt; full ability to drive)</p></td></tr><tr>
+
+<td class="confluenceTd"><p>no</p></td>
+<td class="confluenceTd"><p>luci/ir_left_camera</p></td>
+<td class="confluenceTd"><p>publisher</p></td>
+<td class="confluenceTd"><p>sensor_msgs::msg::Image</p></td>
+<td class="confluenceTd"><p>Left camera’s IR frame</p></td></tr><tr>
+
+<td class="confluenceTd"><p>no</p></td>
+<td class="confluenceTd"><p>luci/ir_right_camera</p></td>
+<td class="confluenceTd"><p>publisher</p></td>
+<td class="confluenceTd"><p>sensor_msgs::msg::Image</p></td>
+<td class="confluenceTd"><p>Right camera’s IR frame</p></td></tr><tr>
+
+<td class="confluenceTd"><p>no</p></td>
+<td class="confluenceTd"><p>luci/ir_back_camera</p></td>
+<td class="confluenceTd"><p>publisher</p></td>
+<td class="confluenceTd"><p>sensor_msgs::msg::Image</p></td>
+<td class="confluenceTd"><p>Back camera’s IR frame</p></td></tr></tbody></table>
 
 ### luci\_ros\_msgs:
 
