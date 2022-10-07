@@ -294,7 +294,7 @@ You are likely to always use this node if using the LUCI SDK.
 <td class="confluenceTd"><p>luci/joystick_topic</p></td>
 <td class="confluenceTd"><p>subscription</p></td>
 <td class="confluenceTd"><p>luci_messages::msg::LuciJoystick</p></td>
-<td class="confluenceTd"><p>Joystick values used to drive the chair (FB: xxx, LR:<span class="inline-comment-marker" data-ref="bc1395ec-0b92-44e3-bb4a-6be4f4336f44"> xxx</span>)</p></td></tr><tr>
+<td class="confluenceTd"><p>Joystick values used to drive the chair (FB: xxx, LR: xxx). Value Range: [-100, 100]</p></td></tr><tr>
 
 <td class="confluenceTd"><p>YES</p></td>
 <td class="confluenceTd"><p>luci/drive_mode</p></td>
@@ -306,13 +306,13 @@ You are likely to always use this node if using the LUCI SDK.
 <td class="confluenceTd"><p>luci/joystick_position</p></td>
 <td class="confluenceTd"><p>publisher</p></td>
 <td class="confluenceTd"><p>luci_messages::msg::LuciJoystick</p></td>
-<td class="confluenceTd"><p>Joystick values of the chair (FB: xx, LR: xx)</p></td></tr><tr>
+<td class="confluenceTd"><p>Joystick values of the chair (FB:xxx, LR: xxx)</p></td></tr><tr>
 
 <td class="confluenceTd"><p>no</p></td>
 <td class="confluenceTd"><p>luci/scaled_joystick_position</p></td>
 <td class="confluenceTd"><p>publisher</p></td>
 <td class="confluenceTd"><p>luci_messages::msg::LuciJoystick</p></td>
-<td class="confluenceTd"><p>Scaled joystick values of the chair (FB: xx, LR: xx)</p></td></tr><tr>
+<td class="confluenceTd"><p>Scaled joystick values of the chair (FB: xxx, LR: xxx)</p></td></tr><tr>
 
 <td class="confluenceTd"><p>no</p></td>
 <td class="confluenceTd"><p>luci/chair_velocity</p></td>
