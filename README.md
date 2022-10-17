@@ -279,7 +279,6 @@ You are likely to always use this node if using the LUCI SDK.
 | YES | luci/joystick_topic | subscription | luci_messages::msg::LuciJoystick | Joystick values used to drive the chair (FB: xxx, LR: xxx). Value Range: [-100, 100] |
 | Yes | luci/drive_mode | subscription | luci_messages::msg::LuciDriveMode | Mode of chair for drive controls (Normal = user drives with joystick, Engaged = remote command drive the chair if user is holding joystick forward, Auto = remote commands drive chair no matter what user is doing) |
 | no | luci/joystick_position | publisher | luci_messages::msg::LuciJoystick | Joystick values of the chair (FB:xxx, LR: xxx) |
-| no | luci/scaled_joystick_position | publisher | luci_messages::msg::LuciJoystick | Scaled joystick values of the chair (FB: xxx, LR: xxx) |
 | no | luci/chair_velocity | publisher | geometry_msgs::msg::Twist | Linear and angular velocity of the chair according to onboard AHRS **Note: “linear velocity” will be speed not velocity** |
 | coming soon | luci/all_sensor_points | publisher | sensor_msgs::msg::PointCloud2 | Full pointcloud (All LUCI sensors) |
 | no | luci/odom | publisher | nav_msgs::msg::Odometry | IMU odom reading |
@@ -385,8 +384,8 @@ Step 2: Spin up the luci\_grpc\_interface\_node.
 Step 3: Open a NEW terminal and source ros2
 `source /opt/ros/galactic/setup.sh`
 
-Step 4: Run the joystick node
-`ros2 run luci_joystick_converter luci_joystick_pid_node`
+Step 4: Run the keyboard teleop node
+`ros2 run teleop_py keyboard_control`
 
 more too come
 
