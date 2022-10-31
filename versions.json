@@ -1,0 +1,17 @@
+{
+    "messages": {
+        "version": "chore/documentation-update"
+    },
+    "grpc": {
+        "version": "chore/documentation-update"
+    },
+    "keyboard-teleop": {
+        "version": "chore/documentation-update"
+    },
+    "transforms": {
+        "version": "chore/documentation-update"
+    },
+    "third-party": {
+        "version": "main"
+    }
+}
