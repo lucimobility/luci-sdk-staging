@@ -30,7 +30,7 @@ jobs:
       - name: Checkout SDK Branch
         uses: actions/checkout@v3
         with:
-          ref: "chore/documentation-update"
+          ref: "main"
           path: ${{env.SDK_REPO}}
 
       - name: JSON to variables
