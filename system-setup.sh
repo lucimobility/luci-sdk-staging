@@ -81,7 +81,7 @@ fi
 
 cd
 
-echo "Finished installing the dependencie, please follow the Install LUCI ROS2 SDK instructions to install the LUCI provided ROS2 packages"
+echo "Finished installing the dependencies, please follow the Install LUCI ROS2 SDK instructions to install the LUCI provided ROS2 packages"
 
 
 

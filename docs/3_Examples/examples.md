@@ -7,7 +7,7 @@ Step 1: Open a fresh terminal and source ros2
 `source /opt/ros/galactic/setup.sh`
 
 Step 2: Spin up the luci\_grpc\_interface\_node.
-`ros2 run luci_grpc_interface luci_grpc_interface_node -a <chair-ip-address>`
+`ros2 run luci_grpc_interface grpc_interface_node -a <chair-ip-address>`
 
 Step 3: Open a NEW terminal and source ros2
 `source /opt/ros/galactic/setup.sh`
@@ -16,13 +16,10 @@ Step 4: Run the sensor transform topic. This tells ROS the location of each sens
 `ros2 run luci_transforms quickie_500m_tf_node`
 
 Step 5: Run rviz2
+
 `rviz2`
 
-Step 6: Configure rviz to display the pointcloud.
-- Change *Fixed Frame* to use *base_link*
-- Press the *Add* button and select *PointCloud2*
-- Click the dropdown on *PointClould2*
-- Change the *Topic* to use */cloud_in*
+Load the config provided in the [SDK Repo](https://github.com/lucimobility/luci-ros2-sdk/tree/main/rviz)
 
 **(Note the interface node is going to use a lot of threads)**
 

@@ -49,4 +49,11 @@ cmake -DgRPC_INSTALL=ON \
 
 `popd`
 
+
+**For some systems the .local folder is not looked at for shared libraries by default. If you get a runtime error that says grpc_node cannot find libgrpc.so then run the command below.**
+
+`export LD_LIBRARY_PATH="$HOME/.local/lib":$LD_LIBRARY_PATH`
+
+**Note: This will need to be done on each terminal you run gRPC node. You can add this to your bashrc file if you want it automatically done on each terminal you open**
+
 Now that gRPC is installed, using the protobuf version installed in the prior step, you are ready to clone and install the ROS2 SDK [repo](https://github.com/lucimobility/luci-ros2-sdk).
