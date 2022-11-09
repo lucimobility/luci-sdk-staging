@@ -1,0 +1,17 @@
+{
+    "messages": {
+        "version": "v0.3.0"
+    },
+    "grpc": {
+        "version": "v0.4.0"
+    },
+    "keyboard-teleop": {
+        "version": "v0.1.0"
+    },
+    "transforms": {
+        "version": "v0.3.0"
+    },
+    "third-party": {
+        "version": "v0.1.0"
+    }
+}

@@ -79,12 +79,9 @@ then
     popd
 fi
 
-# Install the SDK packages
-cd ..
-cd $HOME/luci_ros2_sdk/binaries
-sudo apt install ./*.deb
-
 cd
+
+echo "Finished installing the dependencies, please follow the Install LUCI ROS2 SDK instructions to install the LUCI provided ROS2 packages"
 
 
 
