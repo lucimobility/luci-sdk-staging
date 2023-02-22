@@ -1,0 +1,207 @@
+{
+  "configById": {
+    "3D!18i6zy7": {
+      "layers": {
+        "845139cb-26bc-40b3-8161-8ab60af4baf5": {
+          "visible": true,
+          "frameLocked": true,
+          "label": "Grid",
+          "instanceId": "845139cb-26bc-40b3-8161-8ab60af4baf5",
+          "layerId": "foxglove.Grid",
+          "size": 10,
+          "divisions": 10,
+          "lineWidth": 1,
+          "color": "#248eff",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "order": 1
+        }
+      },
+      "cameraState": {
+        "perspective": true,
+        "distance": 11.376001845523215,
+        "phi": 56.968853732203854,
+        "thetaOffset": 38.84843984197439,
+        "targetOffset": [
+          -0.7002773985518858,
+          -0.398339303968114,
+          3.1886704009370817e-17
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "scene": {
+        "transforms": {
+          "axisScale": 3
+        },
+        "labelScaleFactor": 0
+      },
+      "transforms": {
+        "frame:base_camera": {
+          "visible": false
+        },
+        "frame:base_radar": {
+          "visible": false
+        },
+        "frame:base_ultrasonic": {
+          "visible": false
+        }
+      },
+      "topics": {
+        "/luci/camera_points": {
+          "visible": true,
+          "colorField": "x",
+          "colorMode": "colormap",
+          "colorMap": "turbo",
+          "pointSize": 6
+        },
+        "/luci/radar_points": {
+          "visible": true,
+          "colorField": "x",
+          "colorMode": "colormap",
+          "colorMap": "turbo",
+          "pointSize": 6,
+          "pointShape": "square"
+        },
+        "/luci/ultrasonic_points": {
+          "visible": true,
+          "colorField": "x",
+          "colorMode": "colormap",
+          "colorMap": "turbo",
+          "pointSize": 5
+        }
+      },
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      }
+    },
+    "Plot!45k6yvv": {
+      "paths": [
+        {
+          "timestampMethod": "receiveTime",
+          "value": "/luci/odom.twist.twist.angular.z",
+          "enabled": true
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Plot"
+    },
+    "Plot!1xpyleg": {
+      "paths": [
+        {
+          "value": "/luci/odom.twist.twist.linear.y",
+          "enabled": true,
+          "timestampMethod": "receiveTime"
+        }
+      ],
+      "showXAxisLabels": true,
+      "showYAxisLabels": true,
+      "showLegend": true,
+      "legendDisplay": "floating",
+      "showPlotValuesInLegend": false,
+      "isSynced": true,
+      "xAxisVal": "timestamp",
+      "sidebarDimension": 240,
+      "foxglovePanelTitle": "Plot"
+    },
+    "Gauge!26hxtce": {
+      "path": "/luci/scaling.front_fb",
+      "minValue": 0,
+      "maxValue": 1,
+      "colorMap": "red-yellow-green",
+      "colorMode": "gradient",
+      "gradient": [
+        "#0000ff",
+        "#ff00ff"
+      ],
+      "reverse": false
+    },
+    "virtual-joystick.Virtual Joystick!26jf2j6": {
+      "topic": "/luci/remote_joystick",
+      "publishRate": 5,
+      "maxLinearSpeed": 1,
+      "maxAngularSpeed": 1
+    },
+    "RawMessages!os6rgs": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "/luci/joystick_position"
+    },
+    "RawMessages!20xxqub": {
+      "diffEnabled": false,
+      "diffMethod": "custom",
+      "diffTopicPath": "",
+      "showFullMessageForDiff": false,
+      "topicPath": "/luci/drive_mode"
+    }
+  },
+  "globalVariables": {},
+  "userNodes": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": {
+    "first": {
+      "first": "3D!18i6zy7",
+      "second": {
+        "first": "Plot!45k6yvv",
+        "second": "Plot!1xpyleg",
+        "direction": "column"
+      },
+      "direction": "row"
+    },
+    "second": {
+      "first": {
+        "first": "Gauge!26hxtce",
+        "second": "virtual-joystick.Virtual Joystick!26jf2j6",
+        "direction": "column"
+      },
+      "second": {
+        "first": "RawMessages!os6rgs",
+        "second": "RawMessages!20xxqub",
+        "direction": "column",
+        "splitPercentage": 38.957055214723944
+      },
+      "direction": "column",
+      "splitPercentage": 76.30813953488372
+    },
+    "direction": "row",
+    "splitPercentage": 83.84447796212501
+  }
+}
