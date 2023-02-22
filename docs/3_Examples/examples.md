@@ -47,7 +47,7 @@ Currently we provide a [default panel](../../foxglove/LUCI-foxglove.json) that c
 
 This is just a suggested starting point however and we recommend playing with Foxglove in depth to adapt it to your specific needs. 
 
-We forsee this as a long term replacement for visualizing our data in RVIZ!
+We foresee this as a long term replacement for visualizing our data in RVIZ!
 
 ## Note:
-In order to vizualize data from LUCI in Foxglove you need to run the luci_grpc_interface, the luci_transforms, and the [ros-foxglove-bridge](https://github.com/foxglove/ros-foxglove-bridge) on a single computer. The foxglove bridge can be ran exactly as stated on their GitHub. Once done simply hit connect from Foxglove Studio and watch the data fly!
+In order to vizualize data from LUCI in Foxglove you need to run the luci_grpc_interface, the luci_transforms, and the [ros-foxglove-bridge](https://github.com/foxglove/ros-foxglove-bridge) on a single computer. The foxglove bridge can be ran exactly as stated on their GitHub. Once done, simply hit connect from Foxglove Studio and watch the data fly!

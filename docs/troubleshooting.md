@@ -30,3 +30,5 @@ If you had another version of grpc or protobuf on your system before it is criti
     1. Check if the joystick is still able to drive the chair, if it is then the chair is not in remote mode. See the examples on what call you need to make to change modes
 
     2. If the chair seems to be constantly disengaging and reengaging its solenoid breaks then its likely you are sending remote joystick calls to the chair slower than 4hz and the chair is timing out. This can be due to a bad network/ router or the computer not keeping up with processing. Check the logs in the logs folder in the directory you are building the package. See [https://colcon.readthedocs.io/en/released/user/log-files.html](https://colcon.readthedocs.io/en/released/user/log-files.html) for more help on colcon logs, and see if the timestamps between remote joystick calls is faster than 4hz
+
+    3. Make sure both your computer and the LUCI unit is on a 5Ghz wifi network, and that LUCI is not jumping over to a 2.5Ghz network. The easiest way to ensure this is to make sure the only wifi LUCI knowns about is a 5Ghz one from the Setup-Tool.
