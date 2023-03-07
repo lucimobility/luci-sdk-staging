@@ -39,3 +39,15 @@ At this point you should have the ability to read any number of data streams fro
 `ros2 run luci_basic_teleop keyboard_control_node`
 
 and send in a remote joystick commands to drive the chair.
+
+#[Foxglove](https://foxglove.dev/)
+LUCI is currently in the process of integrating its SDK with Foxglove Studio, an open source  visualization program aimed at extremely professional looking visualizations of ROS topics. 
+
+Currently we provide a [default panel](../../foxglove/LUCI-foxglove.json) that can be imported in Foxglove to get visualization of data we see as important to the average user. 
+
+This is just a suggested starting point however and we recommend playing with Foxglove in depth to adapt it to your specific needs. 
+
+We foresee this as a long term replacement for visualizing our data in RVIZ!
+
+## Note:
+In order to vizualize data from LUCI in Foxglove you need to run the luci_grpc_interface, the luci_transforms, and the [ros-foxglove-bridge](https://github.com/foxglove/ros-foxglove-bridge) on a single computer. The foxglove bridge can be ran exactly as stated on their GitHub. Once done, simply hit connect from Foxglove Studio and watch the data fly!
