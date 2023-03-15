@@ -50,4 +50,12 @@ This is just a suggested starting point however and we recommend playing with Fo
 We foresee this as a long term replacement for visualizing our data in RVIZ!
 
 ## Note:
-In order to vizualize data from LUCI in Foxglove you need to run the luci_grpc_interface, the luci_transforms, and the [ros-foxglove-bridge](https://github.com/foxglove/ros-foxglove-bridge) on a single computer. The foxglove bridge can be ran exactly as stated on their GitHub. Once done, simply hit connect from Foxglove Studio and watch the data fly!
+In order to vizualize data from LUCI in Foxglove you need to run the luci_grpc_interface, the luci_transforms, and the [ros-foxglove-bridge](https://github.com/foxglove/ros-foxglove-bridge) on a single computer.
+Running the foxglove bridge:
+**Step 1**: Open a fresh terminal and source ros2
+`source /opt/ros/galactic/setup.sh`
+
+**Step 2**: Run foxglove bridge.
+`ros2 run foxglove_bridge foxglove_bridge`
+
+Once done, simply hit connect from Foxglove Studio and watch the data fly!
