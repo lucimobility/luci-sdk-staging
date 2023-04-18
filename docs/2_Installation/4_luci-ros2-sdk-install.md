@@ -36,9 +36,9 @@ Once you have added the repo and gpg key for the LUCI ROS2 packages you can inst
 
 ```
 sudo apt update
-sudo apt install ros-galactic-luci-basic-teleop=0.1.0-0focal
-sudo apt install ros-galactic-luci-grpc-interface=0.4.0-0focal
-sudo apt install ros-galactic-luci-messages=0.3.0-0focal
+sudo apt install ros-galactic-luci-basic-teleop=0.2.0-0focal
+sudo apt install ros-galactic-luci-grpc-interface=0.5.0-0focal
+sudo apt install ros-galactic-luci-messages=0.4.0-0focal
 sudo apt install ros-galactic-luci-third-party=0.1.0-0focal
 sudo apt install ros-galactic-luci-transforms=0.3.0-0focal
 ```
