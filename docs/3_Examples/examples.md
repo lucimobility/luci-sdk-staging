@@ -43,7 +43,7 @@ and send in a remote joystick commands to drive the chair.
 #[Foxglove](https://foxglove.dev/)
 LUCI is currently in the process of integrating its SDK with Foxglove Studio, an open source  visualization program aimed at extremely professional looking visualizations of ROS topics. 
 
-Currently we provide a [default panel](../../foxglove/LUCI-foxglove.json) that can be imported in Foxglove to get visualization of data we see as important to the average user. 
+Currently we provide a [default panel](https://github.com/lucimobility/luci-ros2-sdk/blob/main/foxglove/LUCI-foxglove.json) that can be imported in Foxglove to get visualization of data we see as important to the average user. 
 
 This is just a suggested starting point however and we recommend playing with Foxglove in depth to adapt it to your specific needs. 
 
