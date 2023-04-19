@@ -2,12 +2,11 @@
 
 **LUCI uses gRPC, developed by Google, for its wireless messaging system. This system uses protobuf as well. These are very version sensitive so it is important to use the exact versions that are listed below.**
 
-https://github.com/grpc/grpc/blob/master/BUILDING.md#build-from-source  
+https://github.com/grpc/grpc/blob/master/BUILDING.md#build-from-source
 
 gRPC relies on prootbuf as such defaults to installing a version with it. We can tell the installer that we already have protobuf installed however and avoid this. (Note: If you do not tell gRPC to use the 3.17.1 version of protobuf later steps will say that the generated .proto files were generated with the wrong version of protobuf)
 
 We will install gRPC in a special local location, this is very important because a system wide install of gRPC can be borderline impossible to change or uninstall.
-
 
 `cd ~`
 
@@ -41,14 +40,13 @@ cmake -DgRPC_INSTALL=ON \
     -DBUILD_SHARED_LIBS=ON \
     -DABSL_ENABLE_INSTALL=ON \
     ../..
-``` 
+```
 
 `make -j$(nproc)`
 
 `sudo make install`
 
 `popd`
-
 
 **For some systems the .local folder is not looked at for shared libraries by default. If you get a runtime error that says grpc_node cannot find libgrpc.so then run the command below.**
 
