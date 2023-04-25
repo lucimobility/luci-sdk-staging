@@ -1,6 +1,12 @@
 # Getting Started
 
+## Docker
+
+Docker is the recommended way to use the LUCI ROS2 SDK. Instructions for how to get started with the docker container can be found in [Getting started with Docker](./2_docker.md)
+
 ## Setting up your development machine
+
+**This can be skipped if using the docker container above**
 
 Due to the nature of the current packages, some require dependencies before they can be installed or run. These packages are built and tested to support ROS2 Galactic with Ubuntu 20.04. New packages can be developed to fit other ROS2 version and OS needs in the future.
 

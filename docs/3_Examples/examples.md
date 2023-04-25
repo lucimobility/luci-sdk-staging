@@ -1,5 +1,27 @@
 # SDK Examples
 
+### Docker Example
+
+**Step 1**: Open a fresh terminal and run the main container in the background
+`docker run -d -it luci.jfrog.io/ros2-sdk-docker-local/luci-ros2-sdk:1.0.0`
+
+**Step 2**: Get the container id
+`docker ps`
+
+**Step 3**: Connect to the container
+`docker exec -it <container-id> bash`
+
+**Step 4**: Spin up the luci_grpc_interface_node.
+`ros2 run luci_grpc_interface grpc_interface_node -a <chair-ip-address>`
+
+**Step 5**: Open a NEW terminal and connect to the container
+`docker exec -it <container-id> bash`
+
+**Step 6**: Run the keyboard teleop node
+`ros2 run luci_basic_teleop keyboard_control_node`
+
+and send in a remote joystick commands to drive the chair.
+
 ### Example 1 Receive Data from LUCI:
 
 Lets look at a general example of how you might use the LUCI ROS2 SDK to receive data from LUCI from a ROS node. This example spins up the connection to the chair and allows its sensors to be visualized in rviz2.
