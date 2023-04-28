@@ -1,4 +1,4 @@
-![Docker](https://github.com/lucimobility/luci-ros2-sdk/blob/main/static/images/docker-logo.png)
+![Docker](docker-logo.png)
 
 ## Install Docker
 
