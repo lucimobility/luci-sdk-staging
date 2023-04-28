@@ -14,6 +14,6 @@ Please note that some of these are system wide installs and could have conflicts
 
 `sudo apt-get install libspdlog-dev`
 
-
 ## Auto install script
+
 These dependencies are also automatically installed when running the `system-setup.sh` script. If you choose to run sed script please skip ahead to the [LUCI ROS2 Package Install Step](4_luci-ros2-sdk-install.md)

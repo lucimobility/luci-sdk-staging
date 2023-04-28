@@ -12,27 +12,32 @@ Every example / source file must refer to LICENSE
 Every example / source file must include correct copyright notice
 
 Depending on your language used it is expected you follow one of two syling guides
+
 - Python use [PEP8](https://peps.python.org/pep-0008/) Standard
-- C++ use [clang](https://clang.llvm.org/docs/ClangFormat.html) formatting 
+- C++ use [clang](https://clang.llvm.org/docs/ClangFormat.html) formatting
 
 Please familiarize yourself with the Apache License 2.0 before contributing.
 
 ## Contributing to existing LUCI Packages
+
 If there are bugs or feature you would like to see addressed / added to existing LUCI ROS2 packages, please setup an issue in the [luci-ros2-sdk repo](https://github.com/lucimobility/luci-ros2-sdk). As the individual package's code is kept private LUCI will use the public SDK issues tracker as a method of improving existing packages in future releases.
 
 ## Example and general use based changes
+
 For changes that are in reference to examples or general information about how to use the SDK the [luci-ros2-sdk repo](https://github.com/lucimobility/luci-ros2-sdk) is where PRs should be made
 
 ## Added functionality or new package changes
-For changes that are an additional feature / package or is a fix to an existing third-party package please open a PR and issue in the [third-party repo](https://github.com/lucimobility/luci-ros2-third-party). This repo was setup to allow a single point of collaboration for all users of the SDK if they desire to push the project forward with their contributions. 
 
-We see this SDK as a method to get researchers and hobbyists alike all working towards the goal of a better world for those who use a LUCI product. 
+For changes that are an additional feature / package or is a fix to an existing third-party package please open a PR and issue in the [third-party repo](https://github.com/lucimobility/luci-ros2-third-party). This repo was setup to allow a single point of collaboration for all users of the SDK if they desire to push the project forward with their contributions.
 
-It should also be noted that based on the usefulness of a contributed package or its direct reliance on LUCI we may decide to pull individual packages or code out of the third party repo and into its own separate repo / LUCI package binary. 
+We see this SDK as a method to get researchers and hobbyists alike all working towards the goal of a better world for those who use a LUCI product.
+
+It should also be noted that based on the usefulness of a contributed package or its direct reliance on LUCI we may decide to pull individual packages or code out of the third party repo and into its own separate repo / LUCI package binary.
 
 An example of this would be if a LUCI specific URDF were developed we would pull this into a specific URDF package separate from third party.
 
 ## How to make a new feature PR
+
 In order to get a new feature or change into the next official LUCI ROS2 SDK release please follow the steps listed below
 
 - Fork the Project
@@ -42,6 +47,7 @@ In order to get a new feature or change into the next official LUCI ROS2 SDK rel
 - Open a Pull Request
 
 ## Guidelines for Pull Requests
+
 How to get your contributions merged smoothly and quickly.
 
 - Create small PRs that are narrowly focused on addressing a single concern. Create multiple PRs to address different concerns.

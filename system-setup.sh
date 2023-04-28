@@ -16,18 +16,16 @@
 
 # General install stuff
 sudo apt update
-sudo apt install -y cmake
-sudo apt install -y build-essential autoconf libtool pkg-config
-sudo apt-get install libspdlog-dev
+sudo apt install -y cmake build-essential autoconf libtool pkg-config libspdlog-dev curl gnupg lsb-release git automake make g++ unzip
 
 # Locals
-sudo apt update && sudo apt install locales
+sudo sudo apt install locales
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Add ROS repo
-sudo apt update && sudo apt install curl gnupg lsb-release
+sudo apt update
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(source /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
@@ -41,7 +39,6 @@ sudo apt install ros-galactic-desktop
 cd
 if [ ! -d "$HOME/protobuf/" ] 
 then
-    sudo apt-get install autoconf automake libtool curl make g++ unzip
     git clone https://github.com/protocolbuffers/protobuf.git
     cd protobuf
     git checkout v3.17.1
