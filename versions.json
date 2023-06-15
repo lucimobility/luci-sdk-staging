@@ -5,13 +5,19 @@
     "grpc": {
         "version": "v0.5.0"
     },
-    "keyboard-teleop": {
+    "keyboard_teleop": {
         "version": "v0.2.0"
     },
     "transforms": {
         "version": "v0.3.0"
     },
-    "third-party": {
+    "third_party": {
         "version": "v0.1.0"
+    },
+    "encoder": {
+        "version": "main"
+    },
+    "digital_interface": {
+        "version": "main"
     }
 }
