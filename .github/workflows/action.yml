@@ -1,31 +1,18 @@
-name: Create Documentation
+name: Create Release Documentation
 
 on:
   release:
     types: [published]
 
 env:
-  SDK_REPO : luci-ros2-sdk
-  MESSAGE_REPO : luci-ros2-msgs
-  GRPC_REPO : luci-ros2-grpc
-  TRANSFORMS_REPO : luci-ros2-transforms
-  KEYBOARD_REPO : luci-ros2-keyboard-teleop
-  THIRD_PARTY_REPO : luci-ros2-third-party
-  DOCS_REPO : luci-ros2-sdk-docs
+  SDK_REPO: ${{github.event.repository.name}}
+  BUILD_TYPE: production
 
 jobs:
   documentation:
     runs-on: ubuntu-latest
+    container: luci.jfrog.io/ros2-sdk-docker-local/sdk-docs-deployment:beta
     steps:
-      - name: Setup npm
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Install Docusaurus
-        run: |
-          npm install --global docusaurus-init
-          docusaurus-init
 
       - name: Checkout SDK Branch
         uses: actions/checkout@v3
@@ -33,10 +20,11 @@ jobs:
           ref: "main"
           path: ${{env.SDK_REPO}}
 
+
       - name: JSON to variables
         uses: antifree/json-to-variables@v1.0.1
         with:
-          filename: '${{env.SDK_REPO}}/versions.json'
+          filename: "${{env.SDK_REPO}}/versions.json"
           prefix: packages
       - run: |
           echo ${{env.packages_messages_version}} 
@@ -44,97 +32,25 @@ jobs:
           echo ${{env.packages_transforms_version}}
           echo ${{env.packages_keyboard_teleop_version}}
           echo ${{env.packages_third_party_version}}
+          echo ${{env.packages_encoder_version}}
+          echo ${{env.packages_digital_interface_version}}
 
-      - name: Checkout grpc repo
-        uses: actions/checkout@v3
-        with:
-          repository: lucimobility/luci-ros2-grpc
-          ref: ${{env.packages_grpc_version}}
-          path: ${{env.GRPC_REPO}}
-          token: ${{ secrets.ACCESS_TOKEN }}
-
-      - name: Checkout msg repo
-        uses: actions/checkout@v3
-        with:
-          repository: lucimobility/luci-ros2-msgs
-          ref: ${{env.packages_messages_version}}
-          path: ${{env.MESSAGE_REPO}}
-          token: ${{ secrets.ACCESS_TOKEN }}
-
-      - name: Checkout transforms repo
-        uses: actions/checkout@v3
-        with:
-          repository: lucimobility/luci-ros2-transforms
-          ref: ${{env.packages_transforms_version}}
-          path: ${{env.TRANSFORMS_REPO}}
-          token: ${{ secrets.ACCESS_TOKEN }}
-
-      - name: Checkout keyboard repo
-        uses: actions/checkout@v3
-        with:
-          repository: lucimobility/luci-ros2-keyboard-teleop
-          ref: ${{env.packages_keyboard_teleop_version}}
-          path: ${{env.KEYBOARD_REPO}}
-          token: ${{ secrets.ACCESS_TOKEN }}
-
-      - name: Checkout third party repo
-        uses: actions/checkout@v3
-        with:
-          repository: lucimobility/luci-ros2-third-party
-          ref: ${{env.packages_third_party_version}}
-          path: ${{env.THIRD_PARTY_REPO}}
-          token: ${{ secrets.ACCESS_TOKEN }}
-
-      - name: Checkout docs repo
-        uses: actions/checkout@v3
-        with:
-          repository: lucimobility/luci-ros2-sdk-docs
-          ref: main
-          path: ${{env.DOCS_REPO}}
-          token: ${{ secrets.ACCESS_TOKEN }}
-
-      - name: Copy documentation to Doc repo
+      - name: Clone and build docs
         run: |
-          rm -rf ${{env.DOCS_REPO}}/source_files/3_Packages/
-          rm -rf ${{env.DOCS_REPO}}/source_files/2_How-To/
-
-          mkdir ${{env.DOCS_REPO}}/source_files/3_Packages
-
-          cp -r ${{env.GRPC_REPO}}/docs/ ${{env.DOCS_REPO}}/source_files/3_Packages/'GRPC Interface'
-          cp -r ${{env.MESSAGE_REPO}}/docs/ ${{env.DOCS_REPO}}/source_files/3_Packages/'Messages'
-          cp -r ${{env.TRANSFORMS_REPO}}/docs/ ${{env.DOCS_REPO}}/source_files/3_Packages/Transforms
-          cp -r ${{env.KEYBOARD_REPO}}/docs/ ${{env.DOCS_REPO}}/source_files/3_Packages/'Basic Teleop'
-          cp -r ${{env.THIRD_PARTY_REPO}}/docs/ ${{env.DOCS_REPO}}/source_files/3_Packages/'Third Party'
-          cp -r ${{env.SDK_REPO}}/docs/ ${{env.DOCS_REPO}}/source_files/2_How-To
-
-      - name: Version Docs
-        run: |
-          cd ${{env.DOCS_REPO}}
-          rm -rf docs
-          npm run docusaurus docs:version ${{ github.ref_name }}
-
-      - name: Generate Static site
-        run: |
-          cd ${{env.DOCS_REPO}}
-          npm run build
-          mv build docs
-
-      - name: Commit docs to docs repo
-        run: |
-          cd ${{env.DOCS_REPO}}
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add .
-          git commit -am "Updated Docs"
-          echo ${{ github.ref_name }}
-          git tag -a ${{ github.ref_name }} -m "Docs Release for ${{ github.ref_name }}"
-
-      - name: Push changes to docs repo
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.ACCESS_TOKEN }}
-          repository: lucimobility/luci-ros2-sdk-docs
-          branch: main
-          tags: true
-          directory: ${{env.DOCS_REPO}}
-        
+          cd ${{env.SDK_REPO}}
+          ./deployment-scripts/deploy.sh
+        shell: bash
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ENCODER_BRANCH: ${{env.packages_encoder_version}}
+          DIGITAL_INT_BRANCH: ${{env.packages_digital_interface_version}}
+          MESSAGE_BRANCH: ${{env.packages_messages_version}}
+          KEYBOARD_BRANCH: ${{env.packages_keyboard_teleop_version}}
+          GRPC_BRANCH: ${{env.packages_grpc_version}}
+          TRANSFORMS_BRANCH: ${{env.packages_transforms_version}}
+          THIRD_PARTY_BRANCH: ${{env.packages_third_party_version}}
+          DOCS_BRANCH: main
+          DOCS_REPO: ${{vars.DOCS_REPO}}
+          DOCS_ACCOUNT: ${{vars.DOCS_ACCOUNT}} # Push the docs to what ever docs repo is set in the sdk repo secrets (staging or main)
+          BUILD_TYPE: ${{env.BUILD_TYPE}}
+          REF_NAME: ${{github.ref_name}}
