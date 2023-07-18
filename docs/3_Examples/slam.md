@@ -13,12 +13,12 @@ In doing our own prototyping we have established a few tips for a successful nav
 There are multiple methods for SLAM
 Listed in the table below are some of the methods we have tried or looked at and their pros and cons.
 
-| Method                         | Pros                                                                                                  | Cons                                   |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| VSLAM (visual image landmarks) | Can be ran with no encoder <br> Can be used without imu <br> Resistent to the kidnapped robot problem | Struggles in featureless environment   |
-| GMapping                       | Quality 2D map                                                                                        | AMCL Localization <br> LaserScan based |
-| Google Carographer             | Protobuf / gRPC compatible <br> 2D/3D Mapping <br> Aruco tag support                                  | High CPU load                          |
-| RTabMap                        | RGB-D SLAM <br> Paired depth and tracking camera <br> Object detection                                | High CPU load                          |
+| Method                         | Pros                                                                                          | Cons                                 |
+| ------------------------------ | --------------------------------------------------------------------------------------------- | ------------------------------------ |
+| VSLAM (visual image landmarks) | Can be ran with no encoder, Can be used without imu, Resistent to the kidnapped robot problem | Struggles in featureless environment |
+| GMapping                       | Quality 2D map                                                                                | AMCL Localization, LaserScan based   |
+| Google Carographer             | Protobuf / gRPC compatible, 2D/3D Mapping, Aruco tag support                                  | High CPU load                        |
+| RTabMap                        | RGB-D SLAM, Paired depth and tracking camera, Object detection                                | High CPU load                        |
 
 ## Testing done
 

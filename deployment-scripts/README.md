@@ -1,0 +1,1 @@
+This folder is used by Github actions to auto build the SDK documentation that is hosted at https://lucimobility.github.io/luci-sdk-docs/
