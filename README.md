@@ -2,7 +2,7 @@
 
 This is the public repo for the LUCI ROS2 SDK. 
 
-All documentation for examples, packages, and use lives at https://lucimobility.github.io/luci-ros2-sdk-docs/
+All documentation for examples, packages, and use lives at  https://lucimobility.github.io/luci-sdk-docs/
 
 
 [Getting Started](docs/1_Getting-Started/1_getting-started.md)
