@@ -1,0 +1,57 @@
+name: Create and Deploy Docker
+
+on:
+  workflow_dispatch:
+    inputs:
+      DEV:
+        type: boolean
+        description: "If the DEV image should be build"
+        required: true
+        default: false
+      RELEASE:
+        type: boolean
+        description: "If the public RELEASE image should be build"
+        required: true
+        default: false
+
+
+env:
+  REPO: ${{github.event.repository.name}}
+  JF_URL: ${{ secrets.JF_URL }}
+  JF_ACCESS_TOKEN: ${{ secrets.artifactory_token}}
+
+jobs:
+  Build-and-deploy-dev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jfrog/setup-jfrog-cli@v3
+
+      - name: Checkout SDK Branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+          path: ${{env.REPO}}
+
+      - name: Build and deploy dev
+        if: ${{ github.event.inputs.DEV == 'true'}}
+        run: |
+          cd ${{env.REPO}}
+          ./build-and-deploy-dockers.sh -d
+        shell: bash
+
+  Build-and-deploy-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: jfrog/setup-jfrog-cli@v3
+      - name: Checkout SDK Branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+          path: ${{env.REPO}}
+          
+      - name: Build and deploy release
+        if: ${{ github.event.inputs.RELEASE == 'true' }}
+        run: |
+          cd ${{env.REPO}}
+          ./build-and-deploy-dockers.sh -r
+        shell: bash
