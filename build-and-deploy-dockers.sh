@@ -14,7 +14,7 @@ if [ "$development" = true ]; then
     # Build development image 
     docker build -t luci.jfrog.io/ros2-sdk-docker-local/luci-sdk-development-image:latest .
     # Push development image to jfrog
-    docker push luci.jfrog.io/ros2-sdk-docker-local/luci-sdk-development-image:latest
+    jf docker push luci.jfrog.io/ros2-sdk-docker-local/luci-sdk-development-image:latest
 fi
 
 if [ "$release" = true ]; then
@@ -23,5 +23,5 @@ if [ "$release" = true ]; then
     # Build release image 
     docker build -t luci.jfrog.io/ros2-sdk-docker-local/luci-ros2-sdk:latest .
     # Push release image to jfrog
-    docker push luci.jfrog.io/ros2-sdk-docker-local/luci-ros2-sdk:latest
+    jf docker push luci.jfrog.io/ros2-sdk-docker-local/luci-ros2-sdk:latest
 fi
