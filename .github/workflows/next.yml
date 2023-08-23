@@ -1,0 +1,47 @@
+name: Create Next Documentation
+
+on:
+  push:
+    branches:
+      - "main"
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    # Run an update everyday at 5:30 am to keep next updated
+    - cron: "30 5 * * *"
+
+  workflow_dispatch:
+
+env:
+  SDK_REPO: ${{github.event.repository.name}}
+  BUILD_TYPE: next
+
+jobs:
+  documentation:
+    runs-on: ubuntu-latest
+    container: luci.jfrog.io/ros2-sdk-docker-local/sdk-docs-deployment:beta
+    steps:
+      - name: Checkout SDK Branch
+        uses: actions/checkout@v3
+        with:
+          ref: "main"
+          path: ${{env.SDK_REPO}}
+
+      - name: Clone and build docs
+        run: |
+          cd ${{env.SDK_REPO}}
+          ./deployment-scripts/deploy.sh
+        shell: bash
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ENCODER_BRANCH: main
+          DIGITAL_INT_BRANCH: main
+          MESSAGE_BRANCH: main
+          KEYBOARD_BRANCH: main
+          GRPC_BRANCH: main
+          TRANSFORMS_BRANCH: main
+          THIRD_PARTY_BRANCH: main
+          DOCS_BRANCH: main
+          DOCS_REPO: ${{vars.DOCS_REPO}}
+          DOCS_ACCOUNT: ${{vars.DOCS_ACCOUNT}} # Push the docs to what ever docs repo is set in the sdk repo secrets (staging or main)
+          BUILD_TYPE: ${{env.BUILD_TYPE}}
+          REF_NAME: ${{github.ref_name}}
