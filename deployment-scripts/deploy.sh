@@ -8,7 +8,7 @@ KEYBOARD_REPO=luci-ros2-keyboard-teleop
 THIRD_PARTY_REPO=luci-ros2-third-party
 ENCODER_REPO=luci-sdk-encoders
 # Uncomment when digial interface is ready to be added
-# DIGITAL_INTERFACE_REPO=wheelchair-digital-interface
+DIGITAL_INTERFACE_REPO=wheelchair-digital-interface
 
 # Set up a working dir at the root level of the luci-ros2-sdk repo
 mkdir tmp
