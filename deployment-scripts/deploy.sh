@@ -70,4 +70,4 @@ if [[ $BUILD_TYPE == "production" ]];
 then 
     git tag -a $REF_NAME -m "Docs Release for $REF_NAME";
 fi
-git push && git push origin $REF_NAME
+git push && git push origin main
