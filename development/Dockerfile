@@ -26,6 +26,7 @@ RUN apt update \
     make \
     g++ \
     unzip \
+    dpkg-sig \
     && apt-get clean
 
 # Locales
