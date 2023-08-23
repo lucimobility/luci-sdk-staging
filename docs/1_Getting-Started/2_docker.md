@@ -10,12 +10,12 @@ In order to utilize the docker container, you must have docker installed on your
 
 ### Pull the LUCI ROS2 SDK docker image
 
-`docker pull luci.jfrog.io/ros2-sdk-docker-local/luci-ros2-sdk:1.0.0`
+`docker pull luci.jfrog.io/ros2-sdk-docker-local/luci-ros2-sdk:latest`
 
 ### Running the container
 
 **Step 1**: Run the main container in the background
-`docker run -d -it -p 8765:8765 luci.jfrog.io/ros2-sdk-docker-local/luci-ros2-sdk:1.0.0`
+`docker run -d -it -p 8765:8765 luci.jfrog.io/ros2-sdk-docker-local/luci-ros2-sdk:latest`
 
 (Note: This runs the container in the background and will continue to run until explicitly stopped)
 

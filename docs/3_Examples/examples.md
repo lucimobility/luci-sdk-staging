@@ -3,7 +3,7 @@
 ### Docker Example
 
 **Step 1**: Open a fresh terminal and run the main container in the background
-`docker run -d -it luci.jfrog.io/ros2-sdk-docker-local/luci-ros2-sdk:1.0.0`
+`docker run -d -it -p 8765:8765 luci.jfrog.io/ros2-sdk-docker-local/luci-ros2-sdk:latest`
 
 **Step 2**: Get the container id
 `docker ps`
@@ -27,13 +27,13 @@ and send in a remote joystick commands to drive the chair.
 Lets look at a general example of how you might use the LUCI ROS2 SDK to receive data from LUCI from a ROS node. This example spins up the connection to the chair and allows its sensors to be visualized in rviz2.
 
 **Step 1**: Open a fresh terminal and source ros2
-`source /opt/ros/galactic/setup.sh`
+`source /opt/ros/humble/setup.sh`
 
 **Step 2**: Spin up the luci_grpc_interface_node.
 `ros2 run luci_grpc_interface grpc_interface_node -a <chair-ip-address>`
 
 **Step 3**: Open a NEW terminal and source ros2
-`source /opt/ros/galactic/setup.sh`
+`source /opt/ros/humble/setup.sh`
 
 **Step 4**: Run the sensor transform topic. This tells ROS the location of each sensor in the stream.
 `ros2 run luci_transforms quickie_500m_tf_node`
@@ -50,13 +50,13 @@ At this point you should have the ability to read any number of data streams fro
 ### Example 2 Send Data to LUCI:
 
 **Step 1**: Open a fresh terminal and source ros2
-`source /opt/ros/galactic/setup.sh`
+`source /opt/ros/humble/setup.sh`
 
 **Step 2**: Spin up the luci_grpc_interface_node.
 `ros2 run luci_grpc_interface grpc_interface_node -a <chair-ip-address>`
 
 **Step 3**: Open a NEW terminal and source ros2
-`source /opt/ros/galactic/setup.sh`
+`source /opt/ros/humble/setup.sh`
 
 **Step 4**: Run the keyboard teleop node
 `ros2 run luci_basic_teleop keyboard_control_node`
@@ -79,7 +79,7 @@ In order to vizualize data from LUCI in Foxglove you need to run the luci_grpc_i
 Running the foxglove bridge:
 
 **Step 1**: Open a fresh terminal and source ros2
-`source /opt/ros/galactic/setup.sh`
+`source /opt/ros/humble/setup.sh`
 
 **Step 2**: Run foxglove bridge.
 `ros2 run foxglove_bridge foxglove_bridge`
