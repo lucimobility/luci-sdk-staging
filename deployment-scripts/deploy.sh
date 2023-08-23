@@ -24,7 +24,7 @@ git clone -b ${THIRD_PARTY_BRANCH} https://${ACCESS_TOKEN}@github.com/lucimobili
 git clone -b ${DOCS_BRANCH} https://${ACCESS_TOKEN}@github.com/${DOCS_ACCOUNT}/$DOCS_REPO $DOCS_REPO
 
 # Uncomment when digial interface is ready to be added
-# git clone -b ${DIGITAL_INT_BRANCH} https://${ACCESS_TOKEN}@github.com/lucimobility/wheelchair-digital-interface $DIGITAL_INTERFACE_REPO
+git clone -b ${DIGITAL_INT_BRANCH} https://${ACCESS_TOKEN}@github.com/lucimobility/wheelchair-digital-interface $DIGITAL_INTERFACE_REPO
 
 # Start with fresh file structure
 rm -rf $DOCS_REPO/source_files
@@ -33,7 +33,7 @@ mkdir $DOCS_REPO/source_files/'1_ROS2 SDK'
 mkdir $DOCS_REPO/source_files/'2_Using Encoders'
 
 # Uncomment when digial interface is ready to be added
-# mkdir $DOCS_REPO/source_files/'3_Wheelchair Digital Interface'
+mkdir $DOCS_REPO/source_files/'3_Wheelchair Digital Interface'
 
 # Copy doc files from all repos above to docs repo
 mkdir $DOCS_REPO/source_files/'1_ROS2 SDK'/3_Packages
@@ -48,8 +48,8 @@ cp -r ../docs/*.md $DOCS_REPO/source_files/
 cp -r $ENCODER_REPO/docs/* $DOCS_REPO/source_files/'2_Using Encoders'
 
 # Uncomment when digial interface is ready to be added
-# cp -r ${DIGITAL_INTERFACE_REPO}/docs/* $DOCS_REPO/source_files/'3_Wheelchair Digital Interface'
-# cp -r ${DIGITAL_INTERFACE_REPO}/README.md $DOCS_REPO/source_files/'3_Wheelchair Digital Interface'
+cp -r ${DIGITAL_INTERFACE_REPO}/docs/* $DOCS_REPO/source_files/'3_Wheelchair Digital Interface'
+cp -r ${DIGITAL_INTERFACE_REPO}/README.md $DOCS_REPO/source_files/'3_Wheelchair Digital Interface'
 
 # Generate the static site
 cd $DOCS_REPO
