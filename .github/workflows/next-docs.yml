@@ -23,7 +23,7 @@ jobs:
       - name: Checkout SDK Branch
         uses: actions/checkout@v3
         with:
-          ref: "main"
+          ref: ${{ github.ref }}
           path: ${{env.SDK_REPO}}
 
       - name: Clone and build docs
