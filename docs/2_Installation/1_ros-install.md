@@ -1,4 +1,4 @@
-# Install ROS2 Galactic
+# Install ROS2
 
 Instructions from the official ROS maintainers can be found here https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html but the steps we assume you run will be listed below
 
