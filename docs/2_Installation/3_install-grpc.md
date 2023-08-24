@@ -24,29 +24,21 @@ Add the bin path so it can be used at run time of the LUCI SDK packages
 
 ### Clone and Install:
 
-`git clone --recurse-submodules -b v1.38.1 --depth 1 --shallow-submodules https://github.com/grpc/grpc`
-
-`cd grpc`
-
-`mkdir -p cmake/build`
-
-`pushd cmake/build`
-
 ```
-cmake -DgRPC_INSTALL=ON \
+git clone -b v1.56.2 https://github.com/grpc/grpc grpc \
+    && cd grpc \
+    && git submodule update --init \
+    && mkdir -p cmake/build \
+    && cd cmake/build \
+    && cmake -DgRPC_INSTALL=ON \
+    -DCMAKE_BUILD_TYPE=Release \
     -DgRPC_BUILD_TESTS=OFF \
+    -DgRPC_PROTOBUF_PROVIDER=module \
     -DCMAKE_INSTALL_PREFIX=$MY_INSTALL_DIR \
-    -DgRPC_PROTOBUF_PROVIDER=package \
-    -DBUILD_SHARED_LIBS=ON \
-    -DABSL_ENABLE_INSTALL=ON \
-    ../..
+    ../.. \
+    && make -j$(nproc) \
+    && make install
 ```
-
-`make -j$(nproc)`
-
-`sudo make install`
-
-`popd`
 
 **For some systems the .local folder is not looked at for shared libraries by default. If you get a runtime error that says grpc_node cannot find libgrpc.so then run the command below.**
 

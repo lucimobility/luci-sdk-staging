@@ -42,29 +42,30 @@ RUN apt update \
 RUN apt update \
     && apt install -y ros-dev-tools \
     && apt install -y ros-humble-desktop
+# Install LUCI ROS2 SDK
+RUN cd \
+    && curl -fsSL https://luci.jfrog.io/artifactory/api/security/keypair/humble-sdk-key/public | gpg --dearmor -o /usr/share/keyrings/ros2-sdk-packages.gpg \
+    && sh -c "echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/ros2-sdk-packages.gpg] https://luci.jfrog.io/artifactory/ros2-sdk-packages jammy private' >> /etc/apt/sources.list"\
+    && apt update \
+    && apt install ros-humble-luci-basic-teleop=1.0.0-0jammy \
+    && apt install ros-humble-luci-grpc-interface=1.0.0-0jammy \
+    && apt install ros-humble-luci-messages=1.0.0-0jammy \
+    && apt install ros-humble-luci-third-party=1.0.0-0jammy \
+    && apt install ros-humble-luci-transforms=1.0.0-0jammy
 
-# Commented out intentionally will be edited and uncommneted once packages are live on jfrog
-# # Install LUCI ROS2 SDK
-# RUN cd \
-#     && curl -fsSL https://luci.jfrog.io/artifactory/api/security/keypair/ros-deb-files/public | apt-key add - \
-#     && sh -c "echo 'deb https://luci.jfrog.io/artifactory/ros2-sdk-packages focal private' >> /etc/apt/sources.list"\
-#     && apt update \
-#     && apt install ros-galactic-luci-basic-teleop=0.2.0-0focal \
-#     && apt install ros-galactic-luci-grpc-interface=0.5.0-0focal \
-#     && apt install ros-galactic-luci-messages=0.4.0-0focal \
-#     && apt install ros-galactic-luci-third-party=0.1.0-0focal \
-#     && apt install ros-galactic-luci-transforms=0.3.0-0focal
-
-# # Hold all LUCI packages so they dont auto update on apt update
-# RUN apt-mark hold ros-galactic-luci-basic-teleop \
-#     && apt-mark hold ros-galactic-luci-grpc-interface \
-#     && apt-mark hold ros-galactic-luci-messages \
-#     && apt-mark hold ros-galactic-luci-third-party \
-#     && apt-mark hold ros-galactic-luci-transforms 
+# Hold all LUCI packages so they dont auto update on apt update
+RUN apt-mark hold ros-humble-luci-basic-teleop \
+    && apt-mark hold ros-humble-luci-grpc-interface \
+    && apt-mark ros-humble-luci-messages \
+    && apt-mark hold ros-humble-luci-third-party \
+    && apt-mark hold ros-humble-luci-transforms
 
 
 # Install Foxglove support
 RUN apt install ros-humble-foxglove-bridge
+
+# Clean the docker image
+RUN apt-get clean
 
 # Add ROS2 sources to terminal by default
 RUN echo source "/opt/ros/humble/setup.bash" >> /root/.bashrc

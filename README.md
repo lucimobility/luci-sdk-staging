@@ -4,6 +4,10 @@ This is the public repo for the LUCI ROS2 SDK.
 
 All documentation for examples, packages, and use lives at  https://lucimobility.github.io/luci-sdk-docs/
 
+## Docker Images
+This repo supports multiple docker images in order to build and deploy them please see their respective folders README.md instructions.
+
+## Documents
 
 [Getting Started](docs/1_Getting-Started/1_getting-started.md)
 
