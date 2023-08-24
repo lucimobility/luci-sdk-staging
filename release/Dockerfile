@@ -56,7 +56,7 @@ RUN cd \
 # Hold all LUCI packages so they dont auto update on apt update
 RUN apt-mark hold ros-humble-luci-basic-teleop \
     && apt-mark hold ros-humble-luci-grpc-interface \
-    && apt-mark ros-humble-luci-messages \
+    && apt-mark hold ros-humble-luci-messages \
     && apt-mark hold ros-humble-luci-third-party \
     && apt-mark hold ros-humble-luci-transforms
 
