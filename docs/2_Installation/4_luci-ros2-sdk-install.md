@@ -41,7 +41,7 @@ sudo apt update
 apt install ros-humble-luci-basic-teleop=1.0.0-0jammy 
 apt install ros-humble-luci-grpc-interface=1.0.0-0jammy 
 apt install ros-humble-luci-messages=1.0.0-0jammy 
-apt install ros-humble-luci-third-party=1.0.0-0jammy 
+apt install ros-humble-luci-third-party=1.1.0-0jammy 
 apt install ros-humble-luci-transforms=1.0.0-0jammy
 ```
 
