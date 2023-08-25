@@ -18,12 +18,12 @@ env:
 jobs:
   documentation:
     runs-on: ubuntu-latest
-    container: luci.jfrog.io/ros2-sdk-docker-local/sdk-docs-deployment:beta
+    container: luci.jfrog.io/ros2-sdk-docker-local/sdk-docs-deployment:latest
     steps:
       - name: Checkout SDK Branch
         uses: actions/checkout@v3
         with:
-          ref: "main"
+          ref: ${{ github.ref }}
           path: ${{env.SDK_REPO}}
 
       - name: Clone and build docs

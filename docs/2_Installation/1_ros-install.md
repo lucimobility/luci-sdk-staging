@@ -1,6 +1,6 @@
-# Install ROS2 Galactic
+# Install ROS2
 
-Instructions from the official ROS maintainers can be found here https://docs.ros.org/en/galactic/Installation/Ubuntu-Install-Debians.html but the steps we assume you run will be listed below
+Instructions from the official ROS maintainers can be found here https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html but the steps we assume you run will be listed below
 
 ### Set the local:
 
@@ -28,6 +28,6 @@ Instructions from the official ROS maintainers can be found here https://docs.ro
 
 `sudo apt upgrade -y`
 
-`sudo apt install ros-galactic-desktop`
+`sudo apt install ros-humble-desktop`
 
-ROS2 Galactic should now be installed. See the above linked instructions to test it out and make sure its ready. (Try some examples)
+ROS2 Humble should now be installed. See the above linked instructions to test it out and make sure its ready. (Try some examples)

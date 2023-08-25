@@ -1,18 +1,18 @@
 {
     "messages": {
-        "version": "v0.4.1"
+        "version": "v1.0.0"
     },
     "grpc": {
-        "version": "v0.5.0"
+        "version": "v1.0.0"
     },
     "keyboard_teleop": {
-        "version": "v0.2.0"
+        "version": "v1.0.0"
     },
     "transforms": {
-        "version": "v0.3.0"
+        "version": "v1.0.0"
     },
     "third_party": {
-        "version": "v0.1.0"
+        "version": "v1.1.0"
     },
     "encoder": {
         "version": "main"
