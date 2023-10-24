@@ -46,10 +46,9 @@ In order to clone the LUCI repos you will need an ssh key on the Docker image yo
 Note: you can find your `<docker id>` with the command `docker ps`
 
 1. Join the Docker image 
-2. From the root directory make a .ssh folder `mkdir ~/.ssh`
-3. On your dev machine in a new terminal transfer both the private and public ssh key you use for github and or bitbucket
-`docker cp personal_github.pub <docker id>:/root`
-`docker cp personal_github <docker id>:/root`
-4. Go back to the docker image and inform it of the new ssh keys `eval 'ssh-agent'` then `ssh-add personal_github` (Note that I am adding the private key) 
+2. On your dev machine in a new terminal transfer both the private and public ssh key you use for github and or bitbucket
+`docker cp <github>.pub <docker id>:/root`
+`docker cp <github> <docker id>:/root`
+3. Go back to the docker image and inform it of the new ssh keys `exec ssh-agent bash` then `ssh-add <github>` (Note that I am adding the private key) 
 
 From there you should be able to run git clone in that terminal. Newly opened terminals may require running step 4 again.
