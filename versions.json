@@ -1,9 +1,9 @@
 {
     "messages": {
-        "version": "v1.0.0"
+        "version": "v1.3.0"
     },
     "grpc": {
-        "version": "v1.0.0"
+        "version": "v1.3.0"
     },
     "keyboard_teleop": {
         "version": "v1.0.0"
@@ -12,7 +12,7 @@
         "version": "v1.0.0"
     },
     "third_party": {
-        "version": "v1.1.0"
+        "version": "v1.2.0"
     },
     "encoder": {
         "version": "main"

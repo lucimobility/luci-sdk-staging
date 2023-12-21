@@ -7,7 +7,7 @@ slug: /
 
 # LUCI Software Developer Kit
 
-The tools in this SDK make the LUCI platform, sensor information and a control interfaces, available to organizations and leading research institutions, allowing them to use LUCI as a research tool. To use the SDK you will need a LUCI enabled chair updated to LuciCore Sandbox Edition, Version 2.0.1 or greater. If you are interested in gaining access to the Sandbox, contact info@luci.com.
+The tools in this SDK make the LUCI platform, sensor information and a control interfaces, available to organizations and leading research institutions, allowing them to use LUCI as a research tool. To use the SDK you will need a LUCI enabled chair updated to LuciCore Sandbox Edition, Version 2.0.3 or greater. If you are interested in gaining access to the Sandbox, contact info@luci.com.
 
 PLEASE NOTE THE SDK IS CURRENTLY CHANGING RAPIDLY DURING DEVELOPMENT
 

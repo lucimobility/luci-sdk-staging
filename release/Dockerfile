@@ -48,9 +48,9 @@ RUN cd \
     && sh -c "echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/ros2-sdk-packages.gpg] https://luci.jfrog.io/artifactory/ros2-sdk-packages jammy private' >> /etc/apt/sources.list"\
     && apt update \
     && apt install ros-humble-luci-basic-teleop=1.0.0-0jammy \
-    && apt install ros-humble-luci-grpc-interface=1.0.0-0jammy \
-    && apt install ros-humble-luci-messages=1.0.0-0jammy \
-    && apt install ros-humble-luci-third-party=1.0.0-0jammy \
+    && apt install ros-humble-luci-grpc-interface=1.3.0-0jammy \
+    && apt install ros-humble-luci-messages=1.3.0-0jammy \
+    && apt install ros-humble-luci-third-party=1.2.0-0jammy \
     && apt install ros-humble-luci-transforms=1.0.0-0jammy
 
 # Hold all LUCI packages so they dont auto update on apt update

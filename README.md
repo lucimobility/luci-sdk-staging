@@ -31,7 +31,7 @@ When an update has occurred to one of the SDK packages and a new version of the 
 
 ### Steps ### 
 1. Update release version
-    - This should be its own separate PR and should only update the `versions.json` file. Make sure that you have already officially released the SDK package with the version you are changing it to or this build will fail. 
+    - This should be its own separate PR and should update the `versions.json` file and the release Dockerfile with the new package versions. Make sure that you have already officially released the SDK package with the version you are changing it to or this build will fail. 
     - LUCI follows [semver](https://semver.org/) style versioning so MAJOR.MINOR.PATCH versions are expected.
     - It is okay to not put out versions until multiple changes have happened to the code. 
 2. Once the version increment is merged you simply need to create an official release in github.
